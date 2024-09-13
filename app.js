@@ -41,9 +41,9 @@ app.get('/movies', (req, res) => {
     const origin = req.header('origin')
     
     // Cuando la peticion es del mismo Origin no envia ese header
-    if(ACCEPTED_ORIGINS.includes(origin) || !origin) {
-        res.header('Access-Control-Allow-Origin', origin) // Solo tendrian acceso los localhost con ese puerto
-    }
+    // if(ACCEPTED_ORIGINS.includes(origin) || !origin) {
+    //     res.header('Access-Control-Allow-Origin', origin) // Solo tendrian acceso los localhost con ese puerto
+    // }
     
     const { genre } = req.query
     
@@ -109,10 +109,10 @@ app.options('/movies/:id', (req, res) => {
     const origin = req.header('origin')
     
     // Cuando la peticion es del mismo Origin no envia ese header
-    if(ACCEPTED_ORIGINS.includes(origin) || !origin) {
-        res.header('Access-Control-Allow-Origin', origin)
-        res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, PATCH, DELETE')
-    }
+    // if(ACCEPTED_ORIGINS.includes(origin) || !origin) {
+    //     res.header('Access-Control-Allow-Origin', origin)
+    //     res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, PATCH, DELETE')
+    // }
 
     // res.send()
     res.sendStatus(200)
@@ -123,9 +123,9 @@ app.delete('/movies/:id', (req, res) => {
     const origin = req.header('origin')
     
     // Cuando la peticion es del mismo Origin no envia ese header
-    if(ACCEPTED_ORIGINS.includes(origin) || !origin) {
-        res.header('Access-Control-Allow-Origin', origin) // Solo tendrian acceso los localhost con ese puerto
-    }
+    // if(ACCEPTED_ORIGINS.includes(origin) || !origin) {
+    //     res.header('Access-Control-Allow-Origin', origin) // Solo tendrian acceso los localhost con ese puerto
+    // }
 
     const { id } = req.params
     const movieIndex = movies.findIndex(movie => movie.id === id)
